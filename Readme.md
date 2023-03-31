@@ -12,4 +12,4 @@ Vamos desenvolver um programa em Java para simular um campeonato de futebol. Nos
 
 Para implementação do campeonato deveremos ter as seguintes classes:
 
-<img src="assets/img/classes-uml">
+![classes-uml](https://user-images.githubusercontent.com/90703943/229000837-d4b50e6b-aace-4cbc-8bc0-d00536e3bf25.png)
