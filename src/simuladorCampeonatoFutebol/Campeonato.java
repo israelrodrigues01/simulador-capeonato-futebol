@@ -1,18 +1,26 @@
 package simuladorCampeonatoFutebol;
 
+import java.util.ArrayList;
+
 public class Campeonato {
 	
-	Clube clubes;
+	ArrayList<Clube> clubes = new ArrayList<Clube>();
 	
-	public Campeonato(Clube clubes) {
+	public Campeonato(ArrayList<Clube> clubes) {
 		this.clubes = clubes;
 	}
 	
 	void jogarCampeonato(){
-		
+		for(Clube clubeOne : clubes) {
+			for(Clube clubeTwo : clubes) {
+				if(clubeOne.id != clubeTwo.id) {
+					this.jogarPartida(clubeOne, clubeTwo);
+				}
+			}
+		}
 	}
 	
-	void jogarPartida() {
+	void jogarPartida(Clube clubeOne, Clube clubeTwo) {
 		
 	}
 	
@@ -20,7 +28,7 @@ public class Campeonato {
 		
 	}
 	
-	void campeao() {
+	void getCampeao() {
 		
 	}
 	

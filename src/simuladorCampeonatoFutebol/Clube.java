@@ -1,6 +1,7 @@
 package simuladorCampeonatoFutebol;
 
 public class Clube {
+	int id;
 	String nome;
 	int pontos = 0;
 	int saldoGols = 0;
@@ -9,19 +10,31 @@ public class Clube {
 		this.nome = nome;
 	}
 	
-	void ganhar(int saldoGols) {
-		this.saldoGols += saldoGols;
+	void idIngrement(int id) {
+		this.id = id;
 	}
 	
-	void empatar() {}
+	void ganhar(int golsFeitos, int golsSofridos) {
+		int gols = golsFeitos - golsSofridos;
+		this.saldoGols += gols;
+		this.pontos += 3;
+	}
 	
-	void perder() {}
+	void empatar() {
+		this.pontos += 1;
+	}
+	
+	void perder(int gols) {
+		this.saldoGols -= gols;
+	}
 	
 	public String toString() {
-		String values = 
-				"Nome do time: " + this.nome + 
+		String values =
+				"id: " + id +
+				"\nNome do time: " + this.nome + 
 				"\nPontos: " + this.pontos +
-				"\nSaldo de Gols: " + this.saldoGols;
+				"\nSaldo de Gols: " + this.saldoGols +
+				"\n\n\n";
 		return values;
 	}
 }
