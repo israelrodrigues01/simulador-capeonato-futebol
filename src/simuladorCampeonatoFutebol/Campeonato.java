@@ -45,11 +45,33 @@ public class Campeonato {
 	}
 	
 	public String getClassificacao(){
+		String resultado = "";
 		
-		String resultado = "a";
+		int totals = this.clubes.size();
+		Clube reserva;
 		
-		for(Clube time: this.clubes) {
-			resultado += "Time: " + time.nome + "\nPontuacao: " + time.pontos + "\n";
+		//	Ordenando array
+		
+		for(int i = 0; i < totals; i++) {
+			for(int j = 0; j < totals - 1; j++) {
+				Clube valorOne = clubes.get(j);
+				Clube valorTwo = clubes.get(j+1);
+				if(valorOne.pontos < valorTwo.pontos) {
+					reserva = clubes.get(j);
+					clubes.set(j, clubes.get(j+1));
+					clubes.set(j+1, reserva);
+				}else if(valorOne.pontos == valorTwo.pontos) {
+					if(valorOne.saldoGols < valorTwo.saldoGols) {
+						reserva = clubes.get(j);
+						clubes.set(j, clubes.get(j+1));
+						clubes.set(j+1, reserva);
+					}
+				}
+			}
+		}
+		
+		for(Clube time: clubes) {
+			resultado += "\n\nTime: " + time.nome + " Pontuacao: " + time.pontos + " Saldo de Gols: " + time.saldoGols;
 		}
 		
 		return resultado;
@@ -57,7 +79,7 @@ public class Campeonato {
 	
 	public String getCampeao() {
 		Clube capeao = clubes.get(0);
-		String resultado = "Time campeão: " + capeao.nome;
+		String resultado = "Meus parabens " + capeao.nome+ ", voce foi o nosso campeao!!!!";
 		return resultado;
 	}
 	

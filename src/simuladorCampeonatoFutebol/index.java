@@ -33,10 +33,10 @@ public class index {
 		Campeonato campeonato = new Campeonato(clubes);	
 		campeonato.jogarCampeonato();
 		
-		String teste = campeonato.getClassificacao();
+		String classificacao = campeonato.getClassificacao();
 		String capeao = campeonato.getCampeao();
 		
-		System.out.println("relre: " + teste);
+		System.out.println(classificacao);
 		System.out.println(capeao);
 		
 		clubes.clear();
