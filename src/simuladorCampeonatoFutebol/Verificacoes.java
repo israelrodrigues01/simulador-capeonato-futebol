@@ -1,14 +1,16 @@
 package simuladorCampeonatoFutebol;
 
+import java.util.ArrayList;
+
 public class Verificacoes {
 	
-	public boolean nomeIgual(Clube [] clube, String nome) {
-		for(Clube c: clube) {
+	public boolean nomeIgual(ArrayList<Clube> clubes, String nome) {
+		for(Clube c: clubes) {
 			if(c.nome.equals(nome)) {
-				return false;
+				return true;
 			}
 		}
-		return true;
+		return false;
 	}
 	
 }

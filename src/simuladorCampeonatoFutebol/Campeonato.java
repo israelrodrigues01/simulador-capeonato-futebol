@@ -16,6 +16,7 @@ public class Campeonato {
 	}
 	
 	void jogarCampeonato(){
+		System.out.println("============= Assistir jogos ===============\n");
 		for(Clube clubeOne : clubes) {
 			for(Clube clubeTwo : clubes) {
 				if(clubeOne.id != clubeTwo.id) {
@@ -23,6 +24,7 @@ public class Campeonato {
 				}
 			}
 		}
+		System.out.println("\n============= Fim dos jogos ===============");
 	}
 	
 	void jogarPartida(Clube clubeOne, Clube clubeTwo) {
@@ -44,9 +46,7 @@ public class Campeonato {
 		}
 	}
 	
-	public String getClassificacao(){
-		String resultado = "";
-		
+	public String getClassificacao(){		
 		int totals = this.clubes.size();
 		Clube reserva;
 		
@@ -70,8 +70,12 @@ public class Campeonato {
 			}
 		}
 		
+		String resultado = "------------------------------------------------\n";
+		
 		for(Clube time: clubes) {
-			resultado += "\n\nTime: " + time.nome + " Pontuacao: " + time.pontos + " Saldo de Gols: " + time.saldoGols;
+			resultado += 
+					"Time: " + time.nome + " Pontuacao: " + time.pontos + " Saldo de Gols: " + time.saldoGols+
+					"\n------------------------------------------------\n";
 		}
 		
 		return resultado;
