@@ -20,12 +20,21 @@ public class Clube {
 		this.pontos += 3;
 	}
 	
-	void empatar() {
+	void empate() {
 		this.pontos += 1;
 	}
 	
-	void perder(int gols) {
-		this.saldoGols -= gols;
+	void perder(int golsFeitos, int golsSofridos) {
+		int gols = golsFeitos - golsSofridos;
+		this.saldoGols += gols;
+	}
+	
+	public int getPontos() {
+		return this.pontos;
+	}
+	
+	public int getSaldoGols() {
+		return this.saldoGols;
 	}
 	
 	public String toString() {

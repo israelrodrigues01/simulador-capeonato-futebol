@@ -1,7 +1,7 @@
 package simuladorCampeonatoFutebol;
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class index {
 
@@ -9,10 +9,10 @@ public class index {
 		
 		// Libs
 		Scanner input = new Scanner(System.in);
-		ArrayList<Clube> clubes = new ArrayList<Clube>();
 		
 		// Objetos
 		Ingremento id = new Ingremento();
+		ArrayList<Clube> clubes = new ArrayList<Clube>();
 		
 		// Index
 		System.out.print("Quantidade de Clubes? ");
@@ -31,9 +31,13 @@ public class index {
 		}
 		
 		Campeonato campeonato = new Campeonato(clubes);	
+		campeonato.jogarCampeonato();
 		
-		System.out.println(campeonato);
+		String teste = campeonato.getClassificacao();
+		String capeao = campeonato.getCampeao();
 		
+		System.out.println("relre: " + teste);
+		System.out.println(capeao);
 		
 		clubes.clear();
 		input.close();
