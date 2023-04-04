@@ -5,55 +5,54 @@ import java.util.Scanner;
 
 public class index {
 
-	public static void main (String[] args) {
-		
+	public static void main(String[] args) {
+
 		// Libs
 		Scanner inputNumber = new Scanner(System.in);
 		Scanner inputString = new Scanner(System.in);
-		
+
 		// Objetos
 		Ingremento id = new Ingremento();
 		Verificacoes verificar = new Verificacoes();
 		ArrayList<Clube> clubes = new ArrayList<Clube>();
-		
+
 		// Index
 		System.out.print("Quantidade de Clubes? ");
 		int qtdClubes = inputNumber.nextInt();
-		
-		for(int i = 0; i < qtdClubes; i++) {
-			System.out.print("Nome do clube-"+(i + 1)+": ");
+
+		for (int i = 0; i < qtdClubes; i++) {
+			System.out.print("Nome do clube-" + (i + 1) + ": ");
 			String nome = inputString.nextLine();
-			
-			if(!verificar.nomeIgual(clubes, nome)) {
+
+			if (!verificar.nomeIgual(clubes, nome)) {
 				Clube clube_i = new Clube(nome);
 				int numero = id.incremento();
-				
+
 				clube_i.idIncrement(numero);
-				
-				clubes.add(clube_i);					
-			}else {
+
+				clubes.add(clube_i);
+			} else {
 				System.out.println("Nome iguais, tente novamente");
 				i -= 1;
-			}	
+			}
 		}
-		
-		Campeonato campeonato = new Campeonato(clubes);	
+
+		Campeonato campeonato = new Campeonato(clubes);
 		campeonato.jogarCampeonato();
-		
+
 		String classificacao = campeonato.getClassificacao();
 		String capeao = campeonato.getCampeao();
-		
+
 		System.out.println("\n\n============= Classificacao ===============\n\n");
 		System.out.println(classificacao);
 		System.out.println("\n\n============= Classificacao ===============");
-		
+
 		System.out.println("\n\n============= Campeao ===============\n\n");
 		System.out.println(capeao);
 		System.out.println("\n\n============= Capeao ===============");
-		
+
 		clubes.clear();
 		inputNumber.close();
 		inputString.close();
 	}
-	
 }
