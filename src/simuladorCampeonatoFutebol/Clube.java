@@ -1,17 +1,25 @@
 package simuladorCampeonatoFutebol;
 
 public class Clube {
-	int id;
-	String nome;
-	int pontos = 0;
-	int saldoGols = 0;
+	private int id;
+	private String nome;
+	private int pontos = 0;
+	private int saldoGols = 0;
 	
 	public Clube(String nome) {
 		this.nome = nome;
 	}
 	
-	void idIngrement(int id) {
+	void idIncrement(int id) {
 		this.id = id;
+	}
+	
+	public int getId() {
+		return this.id;
+	}
+	
+	public String getNome(){
+		return this.nome;
 	}
 	
 	void ganhar(int golsFeitos, int golsSofridos) {

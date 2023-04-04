@@ -2,8 +2,6 @@ package simuladorCampeonatoFutebol;
 
 import java.util.ArrayList;
 import java.util.Random;
-//import java.util.Arrays;
-//import java.util.Collections;
 
 public class Campeonato {
 	
@@ -19,7 +17,7 @@ public class Campeonato {
 		System.out.println("============= Assistir jogos ===============\n");
 		for(Clube clubeOne : clubes) {
 			for(Clube clubeTwo : clubes) {
-				if(clubeOne.id != clubeTwo.id) {
+				if(clubeOne.getId() != clubeTwo.getId()) {
 					this.jogarPartida(clubeOne, clubeTwo);
 				}
 			}
@@ -34,15 +32,15 @@ public class Campeonato {
 		if(golsTimeOne == golsTimeTwo) {
 			clubeOne.empate();
 			clubeTwo.empate();
-			System.out.println("\nEmpate em: " + clubeOne.nome + " e " + clubeTwo.nome);
+			System.out.println("\nEmpate em: " + clubeOne.getNome() + " e " + clubeTwo.getNome());
 		}else if(golsTimeOne < golsTimeTwo) {
 			clubeOne.perder(golsTimeOne, golsTimeTwo);
 			clubeTwo.ganhar(golsTimeTwo, golsTimeOne);
-			System.out.println("\nTime perdeu: " + clubeOne.nome + ", time ganhou: " + clubeTwo.nome);
+			System.out.println("\nTime perdeu: " + clubeOne.getNome() + ", time ganhou: " + clubeTwo.getNome());
 		}else if(golsTimeOne > golsTimeTwo) {
 			clubeOne.ganhar(golsTimeOne, golsTimeTwo);
 			clubeTwo.perder(golsTimeTwo, golsTimeOne);
-			System.out.println("\nTime ganhou: " + clubeOne.nome + ", time perdeu: " + clubeTwo.nome);
+			System.out.println("\nTime ganhou: " + clubeOne.getNome() + ", time perdeu: " + clubeTwo.getNome());
 		}
 	}
 	
@@ -56,12 +54,12 @@ public class Campeonato {
 			for(int j = 0; j < totals - 1; j++) {
 				Clube valorOne = clubes.get(j);
 				Clube valorTwo = clubes.get(j+1);
-				if(valorOne.pontos < valorTwo.pontos) {
+				if(valorOne.getPontos() < valorTwo.getPontos()) {
 					reserva = clubes.get(j);
 					clubes.set(j, clubes.get(j+1));
 					clubes.set(j+1, reserva);
-				}else if(valorOne.pontos == valorTwo.pontos) {
-					if(valorOne.saldoGols < valorTwo.saldoGols) {
+				}else if(valorOne.getPontos() == valorTwo.getPontos()) {
+					if(valorOne.getSaldoGols() < valorTwo.getSaldoGols()) {
 						reserva = clubes.get(j);
 						clubes.set(j, clubes.get(j+1));
 						clubes.set(j+1, reserva);
@@ -74,7 +72,7 @@ public class Campeonato {
 		
 		for(Clube time: clubes) {
 			resultado += 
-					"Time: " + time.nome + " Pontuacao: " + time.pontos + " Saldo de Gols: " + time.saldoGols+
+					"Time: " + time.getNome() + " Pontuacao: " + time.getPontos() + " Saldo de Gols: " + time.getSaldoGols() +
 					"\n------------------------------------------------\n";
 		}
 		
@@ -83,7 +81,7 @@ public class Campeonato {
 	
 	public String getCampeao() {
 		Clube capeao = clubes.get(0);
-		String resultado = "Meus parabens " + capeao.nome+ ", voce foi o nosso campeao!!!!";
+		String resultado = "Meus parabens " + capeao.getNome() + ", voce foi o nosso campeao!!!!";
 		return resultado;
 	}
 	

@@ -8,7 +8,8 @@ public class index {
 	public static void main (String[] args) {
 		
 		// Libs
-		Scanner input = new Scanner(System.in);
+		Scanner inputNumber = new Scanner(System.in);
+		Scanner inputString = new Scanner(System.in);
 		
 		// Objetos
 		Ingremento id = new Ingremento();
@@ -17,17 +18,17 @@ public class index {
 		
 		// Index
 		System.out.print("Quantidade de Clubes? ");
-		int qtdClubes = input.nextInt();
+		int qtdClubes = inputNumber.nextInt();
 		
 		for(int i = 0; i < qtdClubes; i++) {
 			System.out.print("Nome do clube-"+(i + 1)+": ");
-			String nome = input.next();
+			String nome = inputString.nextLine();
 			
 			if(!verificar.nomeIgual(clubes, nome)) {
 				Clube clube_i = new Clube(nome);
 				int numero = id.incremento();
 				
-				clube_i.idIngrement(numero);
+				clube_i.idIncrement(numero);
 				
 				clubes.add(clube_i);					
 			}else {
@@ -51,7 +52,8 @@ public class index {
 		System.out.println("\n\n============= Capeao ===============");
 		
 		clubes.clear();
-		input.close();
+		inputNumber.close();
+		inputString.close();
 	}
 	
 }
